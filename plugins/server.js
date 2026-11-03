@@ -3,7 +3,7 @@ const axios = require('axios');
 const { lidToPhone } = require('../lib/functions');
 
 // Base URL
-const BASE_URL = "https://team-zee.vercel.app";
+const BASE_URL = "https://www.ghostxd.site";
 
 // Function to get status emoji based on count
 function getCountStatus(count) {

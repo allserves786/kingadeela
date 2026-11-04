@@ -8,36 +8,41 @@ cmd({
   desc: 'Bot website / repo link',
   category: 'main',
   filename: __filename
-}, async (conn, mek, m, { from, sender }) => {
-  const link = 'https://ghost-md-bot.vercel.app/';
+}, async (conn, mek, m, { from, sender, reply }) => {
+  try {
+    const link = 'https://ghostxd.site';
 
-  const text =
-`╭─────────────╮
-│  𝐆ʜᴏsᴛ-𝐌ᴅ💀🚩
-╰─────────────╯
+    const text =
+`*╭┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉━┈᛭*
+*┇•* 🌐 *𝐆ʜᴏsᴛ - xᴅ ʙᴏᴛ ʟɪɴᴋ*
+*┇•* 💀 *ʙᴏᴛ: 𝐆ʜᴏsᴛ-𝐌ᴅ💀🚩*
+*┇•* 👤 *ᴏᴡɴᴇʀ: ᴛᴇᴀᴍ ᴢᴇᴇ*
+*┇•* 🔗 *ʟɪɴᴋ: ${link}*
+*╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉━┈᛭*
 
-🌐 *Bot Link:*
-${link}
+*╭┉┉┉┉┉┉┉┉┉┉┉┉┉┉━┈᛭*
+*┇•* *_ᴛᴀᴘ ᴛʜᴇ ʟɪɴᴋ ᴛᴏ ᴏᴘᴇɴ_*
+*╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉━┈᛭*`;
 
-👤 *Owner:* 𝐌ᴀғɪᴀ 𝐀ᴅᴇᴇʟ
-
-> Tap the link to open`;
-
-  await conn.sendMessage(
-    from,
-    {
-      text,
-      contextInfo: {
-        mentionedJid: [sender],
-        externalAdReply: {
-          title: 'Ghost-MD Bot',
-          body: 'Open official page',
-          mediaType: 1,
-          sourceUrl: link,
-          renderLargerThumbnail: false
+    await conn.sendMessage(
+      from,
+      {
+        text,
+        contextInfo: {
+          mentionedJid: [sender],
+          externalAdReply: {
+            title: 'Ghost-MD Bot',
+            body: 'Open official page',
+            mediaType: 1,
+            sourceUrl: link,
+            renderLargerThumbnail: false
+          }
         }
-      }
-    },
-    { quoted: mek }
-  );
+      },
+      { quoted: mek }
+    );
+  } catch (e) {
+    console.error('[REPO] ERROR:', e);
+    reply(`❌ *An error occurred*\n\n_${e.message || e}_`);
+  }
 });
